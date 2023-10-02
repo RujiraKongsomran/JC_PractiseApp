@@ -27,7 +27,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.rujirakongsomran.jc_practiseapp.model.Photo
 import com.rujirakongsomran.jc_practiseapp.ui.theme.JC_PractiseAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -119,5 +124,17 @@ fun SmallTopAppExample() {
             text = "Example of a scaffold with a bottom app bar."
         )
     }
+}
+
+@Composable
+fun PhotoItem(photo: Photo) {
+    AsyncImage(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(photo.imageUrl)
+            .crossfade(true)
+            .build(),
+        contentDescription = "",
+        contentScale = ContentScale.Crop
+    )
 }
 
