@@ -22,6 +22,13 @@ class PhotoRepository {
             Photo(imageUrl = "https://cdn.pixabay.com/photo/2017/12/29/10/47/animal-company-3047244_1280.jpg"),
             Photo(imageUrl = "https://cdn.pixabay.com/photo/2018/03/18/18/06/australian-shepherd-3237735_1280.jpg"),
             Photo(imageUrl = "https://cdn.pixabay.com/photo/2016/11/22/23/13/dog-1851107_1280.jpg"),
-            Photo(imageUrl = "https://cdn.pixabay.com/photo/2020/06/30/22/34/dog-5357794_1280.jpg")
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2020/06/30/22/34/dog-5357794_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2020/11/24/17/54/dog-5773397_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2016/11/22/23/14/terrier-1851108_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2016/11/22/23/13/black-dog-1851106_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2017/08/01/09/04/dog-2563759_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2014/09/19/21/47/chihuahua-453063_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2020/11/08/10/25/dog-5723334_1280.jpg"),
+            Photo(imageUrl = "https://cdn.pixabay.com/photo/2020/08/12/09/42/dog-5482171_1280.jpg")
         )
 }
