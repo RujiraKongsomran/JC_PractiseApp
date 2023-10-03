@@ -3,10 +3,17 @@ package com.rujirakongsomran.jc_practiseapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
@@ -27,6 +34,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -116,7 +124,7 @@ fun SmallTopAppExample() {
     ) { innerPadding ->
         val photoRepository = PhotoRepository()
         val getAllData = photoRepository.getAllData()
-        PhotoGrid(photos = getAllData, innerPadding)
+        PhotoLazyVerticalStaggeredGrid(photos = getAllData, innerPadding)
     }
 }
 
@@ -136,14 +144,34 @@ fun PhotoGrid(
 }
 
 @Composable
+fun PhotoLazyVerticalStaggeredGrid(
+    photos: List<Photo>,
+    paddingValues: PaddingValues
+) {
+    LazyVerticalStaggeredGrid(
+        columns = StaggeredGridCells.Fixed(3),
+        contentPadding = paddingValues,
+        verticalItemSpacing = 4.dp,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        content = {
+            items(photos) { photo ->
+                PhotoItem(photo = photo)
+            }
+        },
+        modifier = Modifier.fillMaxSize()
+    )
+}
+
+@Composable
 fun PhotoItem(photo: Photo) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(photo.imageUrl)
             .crossfade(true)
             .build(),
+        contentScale = ContentScale.Crop,
         contentDescription = "",
-        contentScale = ContentScale.Crop
+        modifier = Modifier.fillMaxWidth().wrapContentHeight()
     )
 }
 
